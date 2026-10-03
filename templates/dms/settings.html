@@ -1,0 +1,90 @@
+<aside data-component="sidebar"></aside>
+<div class="main-content">
+  <div>
+    <header data-component="topbar"></header>
+    <main class="content">
+      <div class="card-groups">
+        <header>
+          <div>
+            <h1 class="icon-edocument" data-i18n>{LNG_Module Settings} {LNG_Document management system}</h1>
+            <p data-i18n>Document management system</p>
+          </div>
+        </header>
+        <div class="content-body">
+          <form data-form="dmsSettings" action="api/dms/settings/save" method="post" data-ajax-submit="true" data-load-api="api/dms/settings/get"
+                data-confirm="Confirm save" autocomplete="off">
+            <fieldset>
+              <legend class="icon-config" data-i18n>Module Settings</legend>
+              <div class="form-group">
+                <div class="width50">
+                  <label for="dms_prefix" data-i18n>Prefix</label>
+                  <span class="form-control icon-number">
+                    <input type="text" id="dms_prefix" name="dms_prefix" maxlength="20" placeholder="DOC%Y%M-" data-attr="value:dms_prefix">
+                  </span>
+                </div>
+                <div class="width50">
+                  <label for="dms_format_no" data-i18n>Document No.</label>
+                  <span class="form-control icon-number">
+                    <input type="text" id="dms_format_no" name="dms_format_no" maxlength="20" placeholder="%04d, DOC%Y%M-%04d" data-attr="value:dms_format_no">
+                  </span>
+                </div>
+              </div>
+              <div class="comment" data-i18n>{LNG_Prefix, if changed The number will be counted again. You can enter %Y%M (year, month).}, {LNG_Number such as %04d (%04d means 4 digits, maximum 11 digits)}</div>
+              <div>
+                <label for="dms_user_permission" data-i18n>Permission</label>
+                <span class="form-control icon-list">
+                  <select id="dms_user_permission" name="dms_user_permission" multiple data-options-key="dms_user_permission"
+                          data-attr="value:dms_user_permission"></select>
+                </span>
+                <div class="comment" data-i18n>Default license When member registration</div>
+              </div>
+            </fieldset>
+            <fieldset>
+              <legend class="icon-upload" data-i18n>Upload</legend>
+              <div>
+                <input type="checkbox" class="switch" id="dms_require_attach_file" name="dms_require_attach_file" value="1"
+                       data-attr="checked:dms_require_attach_file">
+                <label for="dms_require_attach_file" data-i18n>There is no need to attach files</label>
+              </div>
+              <div>
+                <label for="dms_upload_options" data-i18n>Upload</label>
+                <span class="form-control icon-menus">
+                  <select id="dms_upload_options" name="dms_upload_options" data-options-key="dms_upload_options" data-attr="value:dms_upload_options"></select>
+                </span>
+              </div>
+              <div>
+                <label for="dms_file_typies" data-i18n>Type of file uploads</label>
+                <span class="form-control icon-file">
+                  <input type="text" id="dms_file_typies" name="dms_file_typies" required data-attr="value:dms_file_typies">
+                </span>
+                <div class="comment" id="result_dms_file_typies" data-i18n>Specify the file extension that allows uploading. English lowercase letters and numbers 2-4 characters to separate each type with a comma (,) and without spaces. eg zip,rar,doc,docx</div>
+              </div>
+              <div>
+                <label for="dms_upload_size" data-i18n>Size of the file upload</label>
+                <span class="form-control icon-upload">
+                  <select id="dms_upload_size" name="dms_upload_size" data-options-key="dms_upload_size" data-attr="value:dms_upload_size"></select>
+                </span>
+                <div class="comment" data-text="upload_size_comment"></div>
+              </div>
+            </fieldset>
+            <fieldset>
+              <legend class="icon-download" data-i18n>Download</legend>
+              <div>
+                <label for="dms_download_action" data-i18n>When download</label>
+                <span class="form-control icon-download">
+                  <select id="dms_download_action" name="dms_download_action" data-options-key="dms_download_action" data-attr="value:dms_download_action"></select>
+                </span>
+              </div>
+            </fieldset>
+            <fieldset class="submit">
+              <button type="submit" class="btn btn-primary large icon-save" data-i18n>Save</button>
+            </fieldset>
+          </form>
+        </div>
+      </div>
+    </main>
+  </div>
+  <footer class="footer">
+    <p class="center">&copy; 2026 Admin Framework - Powered by <a href="https://nowjs.net">Now.js</a></p>
+  </footer>
+</div>

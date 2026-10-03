@@ -1,0 +1,35 @@
+<article class="dms-detail">
+  <table class="table fullwidth">
+    <tbody>
+      <tr>
+        <th class="icon-number nowrap" data-i18n>Document No.</th>
+        <td data-text="document_no"></td>
+      </tr>
+      <tr>
+        <th class="icon-file nowrap" data-i18n>Document title</th>
+        <td data-text="topic"></td>
+      </tr>
+      <tr>
+        <th class="icon-calendar nowrap" data-i18n>Date</th>
+        <td data-text="create_date"></td>
+      </tr>
+      <tr>
+        <th class="icon-edit nowrap top" data-i18n>Detail</th>
+        <td class="dms-detail-text" data-text="detail"></td>
+      </tr>
+      <tr data-if="url">
+        <th class="icon-world nowrap" data-i18n>URL</th>
+        <td><a target="_blank" rel="noopener" data-attr="href:url" data-text="url"></a></td>
+      </tr>
+    </tbody>
+  </table>
+  <ul class="dms-files" data-for="file in files">
+    <template>
+      <li>
+        <span class="icon-valid notext dms-downloaded" data-class="file.downloaded ? 'done' : ''"></span>
+        <img class="dms-ext" data-attr="src:file.icon,alt:file.name">
+        <span data-text="file.name"></span>
+      </li>
+    </template>
+  </ul>
+</article>

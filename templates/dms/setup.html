@@ -1,0 +1,106 @@
+<aside data-component="sidebar"></aside>
+<div class="main-content">
+  <div>
+    <header data-component="topbar"></header>
+    <main class="content">
+      <div class="card-groups">
+        <header>
+          <div>
+            <h1 class="icon-documents" data-i18n>{LNG_Upload} {LNG_Document}</h1>
+            <p data-i18n>Document management system</p>
+          </div>
+          <div>
+            <a class="btn btn-primary icon-new" href="/dms-write?id=0" data-i18n>{LNG_Upload} {LNG_Document}</a>
+          </div>
+        </header>
+        <div class="content-body">
+          <form data-table-filter="dmsSetup" class="table_nav">
+            <div>
+              <label for="dms_setup_pagesize" data-i18n>Show</label>
+              <span class="form-control">
+                <select name="pageSize" id="dms_setup_pagesize">
+                  <option value="10" data-i18n>10 {LNG_entries}</option>
+                  <option value="25" data-i18n>25 {LNG_entries}</option>
+                  <option value="50" data-i18n>50 {LNG_entries}</option>
+                  <option value="100" data-i18n>100 {LNG_entries}</option>
+                </select>
+              </span>
+            </div>
+            <div>
+              <label for="dms_setup_from" data-i18n>From</label>
+              <span class="form-control">
+                <input type="date" name="from" id="dms_setup_from">
+              </span>
+            </div>
+            <div>
+              <label for="dms_setup_to" data-i18n>To</label>
+              <span class="form-control">
+                <input type="date" name="to" id="dms_setup_to">
+              </span>
+            </div>
+            <div>
+              <label for="dms_setup_department" data-i18n>Department</label>
+              <span class="form-control">
+                <select name="department" id="dms_setup_department">
+                  <option value="" data-i18n>{LNG_All items}</option>
+                </select>
+              </span>
+            </div>
+            <div>
+              <label for="dms_setup_cabinet" data-i18n>Cabinet</label>
+              <span class="form-control">
+                <select name="cabinet" id="dms_setup_cabinet">
+                  <option value="" data-i18n>{LNG_All items}</option>
+                </select>
+              </span>
+            </div>
+            <input type="search" name="search" placeholder="{LNG_Search}..." data-i18n>
+          </form>
+          <div class="tablebody">
+            <table class="table border fullwidth" data-table="dmsSetup" data-source="api/dms/setup" data-default-sort="create_date desc" data-page-size="25"
+                   data-show-checkbox="true" data-actions='{"delete": "Delete"}' data-action-url="api/dms/setup/action" data-row-actions='{
+                     "files": {
+                       "label": "File",
+                       "className": "btn btn-brown icon-documents",
+                       "url": "/dms-files?dms_id={id}",
+                       "method": "GET",
+                       "condition": "is_url == 0 && can_edit == 1"
+                     },
+                     "url": {
+                       "label": "URL",
+                       "className": "btn btn-primary icon-world",
+                       "url": "{url}",
+                       "method": "GET",
+                       "target": "_blank",
+                       "condition": "is_url == 1"
+                     },
+                     "edit": {
+                       "label": "Edit",
+                       "className": "btn btn-success icon-edit",
+                       "url": "/dms-write?id={id}",
+                       "method": "GET",
+                       "condition": "can_edit == 1"
+                     }
+                   }'>
+              <thead>
+                <tr>
+                  <th data-field="create_date" data-sort="create_date" data-format="date" data-cell-class="nowrap" data-i18n>{LNG_Date}</th>
+                  <th data-field="document_no" data-sort="document_no" data-cell-class="nowrap" data-i18n>{LNG_Document No.}</th>
+                  <th data-field="topic" data-sort="topic" data-template="<span class='two_line'>${topic}</span>" data-i18n>{LNG_Document title}</th>
+                  <th data-field="department" class="center" data-cell-class="center" data-template="<span class='two_line' title='${department}'>${department}</span>"
+                      data-i18n>{LNG_Department}</th>
+                  <th data-field="cabinet" class="center" data-cell-class="center" data-template="<span class='two_line' title='${cabinet}'>${cabinet}</span>"
+                      data-i18n>{LNG_Cabinet}</th>
+                </tr>
+              </thead>
+              <tbody></tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </main>
+  </div>
+  <footer class="footer">
+    <p class="center">&copy; 2026 Admin Framework - Powered by <a href="https://nowjs.net">Now.js</a></p>
+  </footer>
+</div>

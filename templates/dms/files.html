@@ -1,0 +1,56 @@
+<aside data-component="sidebar"></aside>
+<div class="main-content">
+  <div>
+    <header data-component="topbar"></header>
+    <main class="content">
+      <div class="card-groups">
+        <header id="dms-files-header">
+          <div>
+            <h1 class="icon-documents" data-text="'{LNG_List of} {LNG_File} ' + (options.document ? options.document.document_no : '')" data-i18n>{LNG_List of}
+              {LNG_File}</h1>
+            <p data-text="options.document ? options.document.topic : ''"></p>
+          </div>
+          <div>
+            <a class="btn btn-secondary icon-back" href="/dms-setup" data-i18n>{LNG_Back}</a>
+            <a class="btn btn-primary icon-upload" href="/dms-setup" data-attr="href:options.document ? '/dms-write?id=' + options.document.id : '/dms-setup'"
+               data-i18n>{LNG_Upload} {LNG_File}</a>
+          </div>
+        </header>
+        <div class="content-body">
+          <div class="tablebody">
+            <table class="table border fullwidth" data-table="dmsFiles" data-source="api/dms/files" data-default-sort="created_at desc" data-page-size="25"
+                   data-load-query-params="true" data-load-target="#dms-files-header" data-search-columns="topic" data-show-checkbox="true"
+                   data-actions='{"delete": "Delete"}' data-action-url="api/dms/files/action" data-row-actions='{
+                     "download": {
+                       "label": "Download",
+                       "className": "btn btn-purple icon-download",
+                       "url": "api/dms/download/manage?id={id}",
+                       "method": "GET",
+                       "target": "_blank"
+                     },
+                     "report": {
+                       "label": "Download history",
+                       "className": "btn btn-orange icon-report",
+                       "url": "/dms-report?file_id={id}",
+                       "method": "GET"
+                     }
+                   }'>
+              <thead>
+                <tr>
+                  <th data-field="topic" data-sort="topic" data-template="<span class='two_line'>${topic}</span>" data-i18n>{LNG_Document title}</th>
+                  <th data-field="ext" data-formatter="formatDmsExt" class="center" data-cell-class="center"></th>
+                  <th data-field="size" data-sort="size" data-format="filesize" class="center" data-cell-class="center" data-i18n>{LNG_Size of} {LNG_File}</th>
+                  <th data-field="created_at" data-sort="created_at" data-format="datetime" data-cell-class="nowrap" data-i18n>{LNG_Date}</th>
+                </tr>
+              </thead>
+              <tbody></tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </main>
+  </div>
+  <footer class="footer">
+    <p class="center">&copy; 2026 Admin Framework - Powered by <a href="https://nowjs.net">Now.js</a></p>
+  </footer>
+</div>
