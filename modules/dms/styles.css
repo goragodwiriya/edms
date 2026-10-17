@@ -1,0 +1,27 @@
+/* modules/dms — ระบบจัดเก็บเอกสาร */
+.dms-ext {
+  width: 24px;
+  height: 24px;
+  vertical-align: middle;
+}
+.dms-downloaded {
+  color: var(--color-text-muted, #bbb);
+}
+.dms-downloaded.done {
+  color: var(--color-success, #259b24);
+}
+.dms-detail .dms-detail-text {
+  white-space: pre-line;
+}
+.dms-detail .dms-files {
+  list-style: none;
+  margin: var(--space-2, 8px) 0 0;
+  padding: 0;
+}
+.dms-detail .dms-files li {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2, 8px);
+  padding: var(--space-1, 4px) 0;
+  border-bottom: 1px dashed var(--color-border, #ddd);
+}

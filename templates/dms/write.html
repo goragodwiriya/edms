@@ -1,0 +1,100 @@
+<aside data-component="sidebar"></aside>
+<div class="main-content">
+  <div>
+    <header data-component="topbar"></header>
+    <main class="content">
+      <form class="card-groups" data-form="dmsWrite" action="api/dms/write/save" method="post" data-ajax-submit="true"
+            data-load-api="api/dms/write/get" data-load-query-params="true" data-on-load="initDmsWrite" enctype="multipart/form-data"
+            autocomplete="off">
+        <header>
+          <div>
+            <h1 class="icon-write" data-text="title" data-i18n>{LNG_Document}</h1>
+            <p data-i18n>Document management system</p>
+          </div>
+          <div>
+            <a class="btn btn-secondary icon-back" href="/dms-setup" data-i18n>{LNG_Back}</a>
+          </div>
+        </header>
+        <div class="content-body">
+            <fieldset>
+              <legend class="icon-write" data-i18n>{LNG_Details of} {LNG_Document}</legend>
+              <div class="form-group">
+                <div class="width50">
+                  <label for="document_no" data-i18n>Document No.</label>
+                  <span class="form-control icon-number">
+                    <input type="text" id="document_no" name="document_no" maxlength="20" data-attr="value:document_no"
+                           placeholder="{LNG_Leave empty for generate auto}" data-i18n>
+                  </span>
+                  <div class="comment" id="result_document_no"></div>
+                </div>
+                <div class="width50">
+                  <label for="create_date" data-i18n>Date</label>
+                  <span class="form-control icon-calendar">
+                    <input type="date" id="create_date" name="create_date" required data-attr="value:create_date">
+                  </span>
+                  <div class="comment" id="result_create_date"></div>
+                </div>
+              </div>
+              <div>
+                <label for="department" data-i18n>Department</label>
+                <span class="form-control icon-group">
+                  <select id="department" name="department" multiple data-options-key="department" data-attr="value:department"></select>
+                </span>
+                <div class="comment" id="result_department"></div>
+              </div>
+              <div>
+                <label for="cabinet" data-i18n>Cabinet</label>
+                <span class="form-control icon-menus">
+                  <input type="text" id="cabinet" name="cabinet" data-options-key="cabinet" data-attr="value:cabinet">
+                </span>
+                <div class="comment" id="result_cabinet"></div>
+              </div>
+              <div>
+                <label for="topic" data-i18n>Document title</label>
+                <span class="form-control icon-edit">
+                  <input type="text" id="topic" name="topic" maxlength="255" required data-attr="value:topic">
+                </span>
+                <div class="comment" id="result_topic"></div>
+              </div>
+              <div>
+                <label for="want" data-i18n>You want to</label>
+                <span class="form-control icon-menus">
+                  <select id="want" name="want" data-options-key="want" data-attr="value:want"></select>
+                </span>
+              </div>
+              <div data-dms-want="file">
+                <label for="file" data-i18n>Browse file</label>
+                <span class="form-control icon-upload">
+                  <input type="file" id="file" name="file" multiple data-attr="accept:accept"
+                         placeholder="{LNG_Select the file or specify the URL of the document}" data-i18n>
+                </span>
+                <div class="comment" id="result_file" data-text="file_comment"></div>
+              </div>
+              <div data-dms-want="url">
+                <label for="url" data-i18n>URL</label>
+                <span class="form-control icon-world">
+                  <input type="url" id="url" name="url" maxlength="255" data-attr="value:url"
+                         placeholder="{LNG_Select the file or specify the URL of the document}" data-i18n>
+                </span>
+                <div class="comment" id="result_url" data-i18n>URL must begin with http:// or https://</div>
+              </div>
+              <div>
+                <label for="detail" data-i18n>Description</label>
+                <span class="form-control icon-file">
+                  <textarea id="detail" name="detail" rows="5" data-text="detail"></textarea>
+                </span>
+                <div class="comment" id="result_detail" data-i18n>Note or additional notes</div>
+              </div>
+            </fieldset>
+            <fieldset class="submit">
+              <button type="submit" class="btn btn-primary large icon-save" data-i18n>Save</button>
+              <input type="hidden" name="id" data-attr="value:id">
+            </fieldset>
+        </div>
+      </form>
+    </main>
+  </div>
+  <footer class="footer">
+    <p class="center">&copy; 2026 Admin Framework - Powered by <a href="https://nowjs.net">Now.js</a></p>
+  </footer>
+</div>
