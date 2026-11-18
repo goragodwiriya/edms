@@ -1,0 +1,24 @@
+<!-- รายละเอียดเอกสาร (หน้าต่าง) — api/dms/detail/get · วันที่ของเอกสารเป็นค่าดิบ (Y-m-d) ที่จัดรูปที่นี่ -->
+<article class="dms-detail">
+  <dl class="detail-list">
+    <dt class="icon-number" data-i18n>Document No.</dt>
+    <dd data-text="document_no"></dd>
+    <dt class="icon-file" data-i18n>Document title</dt>
+    <dd data-text="topic"></dd>
+    <dt class="icon-calendar" data-i18n>Date</dt>
+    <dd data-text="create_date | date"></dd>
+    <dt class="icon-edit" data-i18n>Detail</dt>
+    <dd class="dms-detail-text pre-line" data-text="detail"></dd>
+    <dt class="icon-world" data-if="url" data-i18n>URL</dt>
+    <dd data-if="url"><a target="_blank" rel="noopener" data-attr="href:url" data-text="url"></a></dd>
+  </dl>
+  <ul class="dms-files" data-for="file in files">
+    <template>
+      <li>
+        <span class="icon-valid notext dms-downloaded" data-class="done: file.downloaded"></span>
+        <img class="dms-ext" data-attr="src:file.icon,alt:file.name">
+        <span data-text="file.name"></span>
+      </li>
+    </template>
+  </ul>
+</article>
